@@ -5,4 +5,5 @@ export type {
   APIPaginatedResponse,
   PageParams,
   PaginatedResponse,
+  PostFavoriteResponse,
 } from './api/types';

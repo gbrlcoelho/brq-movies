@@ -10,4 +10,5 @@ export interface HeaderProps {
     'MovieDetailsScreen'
   >;
   scrollY: Animated.Value;
+  movieId: number;
 }

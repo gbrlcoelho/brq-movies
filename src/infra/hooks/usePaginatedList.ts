@@ -1,7 +1,6 @@
 import {
   InfiniteData,
   QueryObserverResult,
-  UseInfiniteQueryResult,
   useInfiniteQuery,
 } from '@tanstack/react-query';
 
@@ -14,7 +13,7 @@ interface UsePaginatedListResult<T> {
   refresh: () => Promise<
     QueryObserverResult<InfiniteData<PaginatedResponse<T>>>
   >;
-  fetchNextPage: () => Promise<UseInfiniteQueryResult<PaginatedResponse<T>>>;
+  fetchNextPage: () => void;
   hasNextPage: boolean;
 }
 
@@ -34,8 +33,14 @@ export const usePaginatedList = <T>(
 
   const list = query.data?.pages.flatMap(page => page.results) || [];
 
+  const fetchNextPage = () => {
+    if (query.hasNextPage) {
+      query.fetchNextPage();
+    }
+  };
+
   return {
-    fetchNextPage: query.fetchNextPage,
+    fetchNextPage,
     list,
     isError: query.isError,
     isLoading: query.isLoading,

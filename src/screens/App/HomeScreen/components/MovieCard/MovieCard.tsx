@@ -16,7 +16,7 @@ export const MovieCard = ({movie, navigation}: MovieCardProps) => {
       onPress={navigateToMovieDetailsScreen}>
       <Image
         style={imageStyle}
-        source={{uri: `http://image.tmdb.org/t/p/w780/${movie.posterPath}`}}
+        source={{uri: `https://image.tmdb.org/t/p/w780/${movie.posterPath}`}}
         resizeMode="center"
       />
     </TouchableOpacityBox>

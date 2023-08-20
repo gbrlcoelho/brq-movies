@@ -1,6 +1,3 @@
-import {HeaderProps} from './components/Header/HeaderProps';
-
-export interface AppScreenProps extends HeaderProps {
+export interface AppScreenProps {
   children: React.ReactNode;
-  home?: boolean;
 }

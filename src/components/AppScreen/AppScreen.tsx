@@ -5,10 +5,9 @@ import {useAppSafeArea, useAppTheme} from '@hooks';
 import {FlexValueEnum} from '@utils';
 
 import {AppScreenProps} from './AppScreenProps';
-import {Header} from './components/Header/Header';
 import {HomeHeader} from './components/HomeHeader/HomeHeader';
 
-export const AppScreen = ({children, home}: AppScreenProps) => {
+export const AppScreen = ({children}: AppScreenProps) => {
   const {spacing} = useAppTheme();
   const {top, bottom} = useAppSafeArea();
 
@@ -18,7 +17,9 @@ export const AppScreen = ({children, home}: AppScreenProps) => {
         flex={FlexValueEnum.ONE}
         backgroundColor="background"
         style={{paddingTop: top + spacing.s16}}>
-        <Box paddingHorizontal="s16">{home ? <HomeHeader /> : <Header />}</Box>
+        <Box paddingHorizontal="s16">
+          <HomeHeader />
+        </Box>
         <Box flex={FlexValueEnum.ONE} backgroundColor="background">
           {children}
         </Box>

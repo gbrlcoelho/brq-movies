@@ -24,7 +24,7 @@ export const AppStack = () => {
       <Stack.Screen
         name="HomeScreen"
         children={props => (
-          <AppScreen home>
+          <AppScreen>
             <HomeScreen {...props} />
           </AppScreen>
         )}

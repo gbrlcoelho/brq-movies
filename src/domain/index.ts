@@ -1,7 +1,7 @@
 export {movieService} from './Movie/MovieService';
 export type {Movie, MovieAPIType} from './Movie/MovieTypes';
 export {useFavoriteMovieList} from './Movie/useCases/useFavoriteMovieList';
-export {useMovieList} from './Movie/useCases/useMovieList';
+export {usePopularMovieList} from './Movie/useCases/usePopularMovieList';
 export {userService} from './User/UserService';
 export type {
   LoginPayload,

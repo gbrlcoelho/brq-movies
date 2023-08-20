@@ -9,8 +9,3 @@ export enum StorageKeyEnum {
 export enum PerPageEnum {
   DEFAULT = 10,
 }
-
-export enum QueryKeyEnum {
-  MOVIES_LIST = '@MoviesList',
-  FAVORITES_MOVIES_LIST = '@FavoriteMoviesList',
-}

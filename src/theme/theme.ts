@@ -29,8 +29,6 @@ export const theme = createTheme({
     buttonPrimary: palette.orange,
     buttonPrimaryContrast: palette.grayWhite,
 
-    screenBackground: palette.gray6,
-
     background: palette.neutral,
     backgroundContrast: palette.gray,
 

@@ -1,11 +1,17 @@
 import {
   ArrowUpIcon,
+  CalendarIcon,
   CheckCircleIcon,
+  ChevronLeftIcon,
   EyeOffIcon,
   EyeOnIcon,
+  HeartFillIcon,
+  HeartIcon,
   LockIcon,
   LogoutIcon,
   MenuIcon,
+  StarIcon,
+  ThumbsUpIcon,
   UserIcon,
   XCircleIcon,
 } from '@icons';
@@ -25,12 +31,18 @@ export interface IconBase {
 
 export const iconRegistry = {
   arrowUp: ArrowUpIcon,
+  calendar: CalendarIcon,
   checkCircle: CheckCircleIcon,
+  chevronLeft: ChevronLeftIcon,
   eyeOff: EyeOffIcon,
   eyeOn: EyeOnIcon,
+  heartFill: HeartFillIcon,
+  heart: HeartIcon,
   lock: LockIcon,
   logout: LogoutIcon,
   menu: MenuIcon,
+  star: StarIcon,
+  thumbsUp: ThumbsUpIcon,
   user: UserIcon,
   xCircle: XCircleIcon,
 };

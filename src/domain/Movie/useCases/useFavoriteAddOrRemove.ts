@@ -1,7 +1,7 @@
 import {useMutation, useQueryClient} from '@tanstack/react-query';
 
 import {movieService} from '@domain';
-import {MutationOptions} from '@infra';
+import {MutationOptions, QueryKeyEnum} from '@infra';
 import {PostFavoriteResponse} from '@services';
 
 export const useFavoriteAddOrRemove = (
@@ -22,7 +22,9 @@ export const useFavoriteAddOrRemove = (
     mutationFn: async ({movieId, favorite}) =>
       await movieService.postFavorite(movieId, favorite),
     onSuccess: data => {
-      queryClient.invalidateQueries();
+      queryClient.invalidateQueries({
+        queryKey: [QueryKeyEnum.FAVORITES_MOVIES_LIST],
+      });
       if (options?.onSuccess) {
         options.onSuccess(data);
       }

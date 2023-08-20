@@ -11,7 +11,7 @@ export const EmptyList = ({
   refresh,
 }: EmptyListProps) => {
   let component = (
-    <Text bold preset="paragraphMedium">
+    <Text bold preset="paragraphMedium" color="gray3">
       Não há {listItemName}
     </Text>
   );
@@ -23,7 +23,7 @@ export const EmptyList = ({
   if (error) {
     component = (
       <>
-        <Text bold preset="paragraphMedium" marginBottom="s24">
+        <Text bold preset="paragraphMedium" marginBottom="s24" color="gray3">
           Não foi possível carregar {listItemName}
         </Text>
         <Button

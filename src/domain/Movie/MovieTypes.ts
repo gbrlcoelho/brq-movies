@@ -2,10 +2,11 @@ export interface Movie {
   id: number;
   title: string;
   overview: string;
-  voteAverage: number;
+  voteAverage: string;
   posterPath: string;
-  popularity: number;
+  popularity: string;
   releaseDate: string;
+  voteCount: string;
 }
 
 export interface MovieAPIType {

@@ -8,10 +8,11 @@ const toMovie = (results: MovieAPIType[]): Movie[] => {
       id: movieAPI.id,
       title: movieAPI.title,
       overview: movieAPI.overview,
-      voteAverage: movieAPI.vote_average,
+      voteAverage: movieAPI.vote_average.toString(),
       posterPath: movieAPI.poster_path,
-      popularity: movieAPI.popularity,
+      popularity: movieAPI.popularity.toString(),
       releaseDate: formatDate(movieAPI.release_date),
+      voteCount: movieAPI.vote_count.toString(),
     };
   });
 };

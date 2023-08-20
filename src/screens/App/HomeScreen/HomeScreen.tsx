@@ -1,27 +1,18 @@
-import React, {useCallback, useRef} from 'react';
-import {FlatList, ListRenderItem, RefreshControl} from 'react-native';
+import React, {useCallback, useRef, useState} from 'react';
+import {FlatList, ListRenderItem} from 'react-native';
 
-import {Box, EmptyList, FloatingActionButton, SwitchButton} from '@components';
-import {Movie, useMovieList} from '@domain';
-import {useAppTheme} from '@hooks';
+import {Box, FloatingActionButton, SwitchButton} from '@components';
+import {Movie} from '@domain';
 import {AppScreenProps} from '@routes';
-import {FlexValueEnum, itemSeparator} from '@utils';
+import {FlexValueEnum} from '@utils';
 
-import {MovieCard} from './components/MovieCard/MovieCard';
+import {FavoriteMovieList, MovieCard, PopularMovieList} from './components';
+
 const options: [string, string] = ['Todos os Filmes', 'Filmes Favoritos'];
 
 export const HomeScreen = ({navigation}: AppScreenProps<'HomeScreen'>) => {
-  const {spacing} = useAppTheme();
+  const [listType, setListType] = useState<'all' | 'favorites'>('all');
   const flatListRef = useRef<FlatList>(null);
-  const {
-    list: moviesList,
-    fetchNextPage,
-    isError,
-    isLoading,
-    refresh,
-  } = useMovieList();
-
-  const contentContainerFlex = moviesList.length === 0 ? 1 : undefined;
 
   const scrollToTop = () => {
     flatListRef.current?.scrollToOffset({
@@ -37,38 +28,26 @@ export const HomeScreen = ({navigation}: AppScreenProps<'HomeScreen'>) => {
     [navigation],
   );
 
+  const onSwitchButtonChange = useCallback((value: string) => {
+    if (value === options[0]) {
+      setListType('all');
+    } else {
+      setListType('favorites');
+    }
+  }, []);
+
   return (
     <>
       <Box marginTop="s20" gap="s20" flex={FlexValueEnum.ONE}>
-        <SwitchButton options={options} onChange={log => console.log(log)} />
-        <FlatList
-          ref={flatListRef}
-          data={moviesList}
-          renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
-          numColumns={2}
-          columnWrapperStyle={{
-            justifyContent: 'space-between',
-            paddingHorizontal: spacing.s24,
-          }}
-          onEndReached={fetchNextPage}
-          onEndReachedThreshold={0.1}
-          refreshing={isLoading}
-          refreshControl={
-            <RefreshControl refreshing={isLoading} onRefresh={refresh} />
-          }
-          contentContainerStyle={{flex: contentContainerFlex}}
-          ItemSeparatorComponent={itemSeparator}
-          ListEmptyComponent={
-            <EmptyList
-              listItemName="filmes"
-              refresh={refresh}
-              error={isError}
-              loading={isLoading}
-            />
-          }
-          showsVerticalScrollIndicator={false}
-        />
+        <SwitchButton options={options} onChange={onSwitchButtonChange} />
+        {listType === 'all' ? (
+          <PopularMovieList flatListRef={flatListRef} renderItem={renderItem} />
+        ) : (
+          <FavoriteMovieList
+            flatListRef={flatListRef}
+            renderItem={renderItem}
+          />
+        )}
       </Box>
       <FloatingActionButton icon="arrowUp" onPress={scrollToTop} />
     </>

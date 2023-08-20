@@ -12,7 +12,7 @@ export const Header = ({navigation, scrollY}: HeaderProps) => {
   const headerBackgroundColor = useRef(
     scrollY.interpolate({
       inputRange: [0, 100],
-      outputRange: ['rgba(0, 0, 0, 0)', colors.backgroundContrast],
+      outputRange: ['rgba(0, 0, 0, 0)', colors.background],
       extrapolate: 'clamp',
     }),
   ).current;

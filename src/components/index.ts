@@ -4,6 +4,7 @@ export {AuthScreen} from './AuthScreen/AuthScreen';
 export {AnimatedBox, Box, ReanimatedBox, TouchableOpacityBox} from './Box/Box';
 export type {BoxProps, TouchableOpacityBoxProps} from './Box/BoxProps';
 export {Button} from './Button/Button';
+export {Card} from './Card/Card';
 export {EmptyList} from './EmptyList/EmptyList';
 export {FloatingActionButton} from './FloatingActionButton/FloatingActionButton';
 export {FormPasswordInput} from './Form/FormPasswordInput';

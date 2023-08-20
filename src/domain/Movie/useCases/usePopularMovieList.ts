@@ -1,6 +1,5 @@
 import {movieService} from '@domain';
-import {usePaginatedList} from '@infra';
-import {QueryKeyEnum} from '@utils';
+import {QueryKeyEnum, usePaginatedList} from '@infra';
 
 export const usePopularMovieList = () => {
   return usePaginatedList(

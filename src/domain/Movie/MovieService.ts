@@ -1,5 +1,5 @@
 import {MovieAPIType} from '@domain';
-import {MovieAPI, PaginatedResponse} from '@services';
+import {MovieAPI, PaginatedResponse, PostFavoriteResponse} from '@services';
 
 import {movieAdapter} from './MovieAdapter';
 
@@ -26,7 +26,17 @@ const getFavoriteList = async (page: number) => {
   return getListGeneric(response);
 };
 
+const postFavorite = async (
+  movieId: number,
+  favorite: boolean,
+): Promise<PostFavoriteResponse> => {
+  const response = (await MovieAPI.postFavorite(movieId, favorite)).data;
+
+  return response;
+};
+
 export const movieService = {
   getPopularList,
   getFavoriteList,
+  postFavorite,
 };

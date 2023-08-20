@@ -1,4 +1,4 @@
-# BRQ Movies - Teste Técnico
+# BRQ Movies 
 
 Este projeto é uma aplicação móvel construída em React Native, que consiste em uma tela de login , uma tela de listagem de filmes e favoritos com funcionalidades específicas, e uma tela de detalhes do filme. Abaixo você encontrará informações importantes sobre o projeto, como requisitos, funcionalidades, instalação e as principais bibliotecas utilizadas.
 

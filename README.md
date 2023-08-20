@@ -55,5 +55,15 @@ Durante o desenvolvimento do projeto, as seguintes bibliotecas foram utilizadas 
 - **react-native-svg**: Utilizada para renderizar gráficos SVG na aplicação.
 - **reanimated**: Biblioteca para animações complexas e de alto desempenho.
 
+## App Screenshots
+
+![image](https://github.com/gbrlcoelho/brq-movies/assets/92391632/a2b8a8b2-6841-4201-b14d-a0bcd1e1a0c0)
+![image](https://github.com/gbrlcoelho/brq-movies/assets/92391632/9d0a92c5-4a99-4e44-8d45-16e254b84b0d)
+![image](https://github.com/gbrlcoelho/brq-movies/assets/92391632/d2c8e650-0487-45a4-8fc8-a9ee113fad91)
+![image](https://github.com/gbrlcoelho/brq-movies/assets/92391632/679157e4-c045-4387-b4f7-5581ee83c783)
+![image](https://github.com/gbrlcoelho/brq-movies/assets/92391632/bb5171a3-2d40-45e9-aa44-9592a71f7cc1)
+![image](https://github.com/gbrlcoelho/brq-movies/assets/92391632/9811a67a-6965-4da4-b13c-06805161b122)
+
+
 
 Agradecemos por verificar o projeto **BRQ Movies**. Caso tenha alguma dúvida ou comentário, sinta-se à vontade para entrar em contato.

@@ -12,4 +12,5 @@ export enum PerPageEnum {
 
 export enum QueryKeyEnum {
   MOVIES_LIST = '@MoviesList',
+  FAVORITES_MOVIES_LIST = '@FavoriteMoviesList',
 }

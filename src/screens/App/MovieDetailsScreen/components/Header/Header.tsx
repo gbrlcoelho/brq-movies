@@ -1,13 +1,36 @@
 import React, {useRef} from 'react';
 
-import {AnimatedBox, Box, Icon} from '@components';
-import {useAppSafeArea, useAppTheme} from '@hooks';
+import {AnimatedBox, Icon, TouchableOpacityBox} from '@components';
+import {useFavoriteAddOrRemove, useIsFavorite} from '@domain';
+import {useAppSafeArea, useAppTheme, useToast} from '@hooks';
 
 import {HeaderProps} from './HeaderProps';
 
-export const Header = ({navigation, scrollY}: HeaderProps) => {
+export const Header = ({navigation, scrollY, movieId}: HeaderProps) => {
   const {top} = useAppSafeArea();
   const {colors} = useAppTheme();
+  const {isFavorite} = useIsFavorite(movieId);
+  const {openToast} = useToast();
+  const {addOrRemove} = useFavoriteAddOrRemove({
+    onSuccess: () => {
+      openToast(
+        'success',
+        isFavorite ? 'Removido dos favoritos' : 'Adicionado aos favoritos',
+      );
+    },
+    onError: () => {
+      openToast(
+        'error',
+        isFavorite
+          ? 'Erro ao remover dos favoritos'
+          : 'Erro ao adicionar aos favoritos',
+      );
+    },
+  });
+
+  const handleFavorite = () => {
+    addOrRemove(movieId, !isFavorite);
+  };
 
   const headerBackgroundColor = useRef(
     scrollY.interpolate({
@@ -34,24 +57,30 @@ export const Header = ({navigation, scrollY}: HeaderProps) => {
       paddingHorizontal="s16"
       height={60}
       style={{backgroundColor: headerBackgroundColor, paddingTop: top}}>
-      <Box
-        backgroundColor="background"
+      <TouchableOpacityBox
+        backgroundColor="gray1"
         borderRadius="s40"
         width={24}
         height={24}
         justifyContent="center"
-        alignItems="center">
-        <Icon name="chevronLeft" size={12} color="primary" onPress={goBack} />
-      </Box>
-      <Box
+        alignItems="center"
+        onPress={goBack}>
+        <Icon name="chevronLeft" size={12} color="primary" />
+      </TouchableOpacityBox>
+      <TouchableOpacityBox
         backgroundColor="primary"
         borderRadius="s40"
         width={24}
         height={24}
         justifyContent="center"
-        alignItems="center">
-        <Icon name="heartFill" size={14} color="background" />
-      </Box>
+        alignItems="center"
+        onPress={handleFavorite}>
+        <Icon
+          name={isFavorite ? 'heartFill' : 'heart'}
+          size={14}
+          color="background"
+        />
+      </TouchableOpacityBox>
     </AnimatedBox>
   );
 };

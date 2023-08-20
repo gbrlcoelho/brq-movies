@@ -14,12 +14,11 @@ export const MovieDetailsScreen = ({
 }: AppScreenProps<'MovieDetailsScreen'>) => {
   const movie = route.params;
   const {top, bottom} = useAppSafeArea();
-
   const [scrollY] = useState(new Animated.Value(0));
 
   return (
     <>
-      <Header navigation={navigation} scrollY={scrollY} />
+      <Header navigation={navigation} scrollY={scrollY} movieId={movie.id} />
       <Box
         backgroundColor="background"
         flex={FlexValueEnum.ONE}

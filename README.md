@@ -20,6 +20,17 @@ O projeto **BRQ Movies** foi desenvolvido para atender os seguintes requisitos:
 4. **Tratamento de Erros**:
    - O aplicativo lida adequadamente com erros de indisponibilidade de internet ou erros na API.
 
+## Configuração do Arquivo .env
+
+Antes de executar o projeto, você precisará criar um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+
+```env
+REACT_APP_BASE_URL=https://api.themoviedb.org/3
+MOVIE_DB_API_KEY=SUA_CHAVE_DA_API_THE_MOVIE_DB
+API_ACCESS_TOKEN=SEU_TOKEN_DE_ACESSO_API_THE_MOVIE_DB
+```
+
+Certifique-se de substituir SUA_CHAVE_DA_API_THE_MOVIE_DB pela sua chave de API do The Movie DB e SEU_TOKEN_DE_ACESSO_API_THE_MOVIE_DB pelo seu token de acesso à API do The Movie DB.
 
 ## Instalação
 

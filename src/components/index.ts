@@ -1,7 +1,7 @@
 export {ActivityIndicator} from './ActivityIndicator/ActivityIndicator';
 export {AppScreen} from './AppScreen/AppScreen';
 export {AuthScreen} from './AuthScreen/AuthScreen';
-export {AnimatedBox, Box, ReanimatedBox, TouchableOpacityBox} from './Box/Box';
+export {AnimatedBox, Box, TouchableOpacityBox} from './Box/Box';
 export type {BoxProps, TouchableOpacityBoxProps} from './Box/BoxProps';
 export {Button} from './Button/Button';
 export {Card} from './Card/Card';

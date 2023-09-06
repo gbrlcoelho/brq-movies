@@ -1,36 +1,38 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
+import {Animated} from 'react-native';
 
-import {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-} from 'react-native-reanimated';
-
-import {Box, ReanimatedBox, Text} from '@components';
+import {AnimatedBox, Box, Text} from '@components';
 
 import {setToastIcon} from './helpers/setToastIcon';
 import {ToastProps} from './ToastProps';
 
 export const Toast = ({visible, message, type}: ToastProps) => {
   const [icon, color] = setToastIcon(type);
-  const positionY = useSharedValue(100);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{translateY: withSpring(positionY.value)}],
-    };
-  });
+  const positionY = useMemo(() => new Animated.Value(100), []);
 
   useEffect(() => {
     if (visible) {
-      positionY.value = -16;
+      Animated.timing(positionY, {
+        toValue: -16,
+        duration: 300,
+        useNativeDriver: false,
+      }).start();
     } else {
-      positionY.value = 100;
+      Animated.timing(positionY, {
+        toValue: 100,
+        duration: 300,
+        useNativeDriver: false,
+      }).start();
     }
   }, [visible, positionY]);
 
+  const animatedStyle = {
+    transform: [{translateY: positionY}],
+  };
+
   return (
-    <ReanimatedBox
+    <AnimatedBox
       alignSelf="center"
       zIndex={1}
       position="absolute"
@@ -46,6 +48,6 @@ export const Toast = ({visible, message, type}: ToastProps) => {
         {icon}
         <Text color="buttonPrimaryContrast">{message}</Text>
       </Box>
-    </ReanimatedBox>
+    </AnimatedBox>
   );
 };

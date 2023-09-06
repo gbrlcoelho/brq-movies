@@ -13,7 +13,6 @@ import {
   SpacingProps,
   SpacingShorthandProps,
 } from '@shopify/restyle';
-import Animated from 'react-native-reanimated';
 
 import {Theme} from '@theme';
 
@@ -36,12 +35,3 @@ export type AnimatedBoxProps = BackgroundColorProps<Theme> &
   PositionProps<Theme> &
   ShadowProps<Theme> &
   RNAnimated.AnimatedProps<ViewProps>;
-
-export type ReanimatedBoxProps = BackgroundColorProps<Theme> &
-  SpacingProps<Theme> &
-  LayoutProps<Theme> &
-  BorderProps<Theme> &
-  SpacingShorthandProps<Theme> &
-  PositionProps<Theme> &
-  ShadowProps<Theme> &
-  Animated.AnimateProps<ViewProps>;

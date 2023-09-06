@@ -10,15 +10,10 @@ import {
   spacing,
   spacingShorthand,
 } from '@shopify/restyle';
-import Animated from 'react-native-reanimated';
 
 import {Theme} from '@theme';
 
-import {
-  AnimatedBoxProps,
-  ReanimatedBoxProps,
-  TouchableOpacityBoxProps,
-} from './BoxProps';
+import {AnimatedBoxProps, TouchableOpacityBoxProps} from './BoxProps';
 
 export const Box = createBox<Theme>();
 
@@ -33,9 +28,4 @@ export const TouchableOpacityBox = createRestyleComponent<
 export const AnimatedBox = createRestyleComponent<AnimatedBoxProps, Theme>(
   [backgroundColor, spacing, spacingShorthand, layout, border, shadow],
   RNAnimated.View,
-);
-
-export const ReanimatedBox = createRestyleComponent<ReanimatedBoxProps, Theme>(
-  [backgroundColor, spacing, spacingShorthand, layout, border, shadow],
-  Animated.View,
 );
